@@ -17,16 +17,11 @@ setTimeout(function() {
     var userNumber = parseInt(prompt('Inserisci un numero alla volta '));
     listaNumeriUser.push(userNumber);
   }
-  while (listaNumeriRandom.includes(listaNumeriUser[i])) {
-    var listaToShow = [];
-    listaToShow.push(listaNumeriUser[i]);
-    alert(JSON.stringify(listaToShow));
+  var listaToShow = [];
+  for (var i = 0; i < 5; i++) {
+    if (listaNumeriRandom.includes(listaNumeriUser[i])) {
+      listaToShow.push(listaNumeriUser[i]);
+    }
   }
-  // for (var i = 0; i < 5; i++) {
-  //   if (listaNumeriRandom.includes(listaNumeriUser[i])) {
-  //     alert('ok');
-  //   } else {
-  //     alert('no');
-  //   }
-  // }
+  alert(JSON.stringify(listaToShow));
 }, 3000)
