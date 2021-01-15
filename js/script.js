@@ -3,13 +3,6 @@ function randomNumber(min, max) {
   return result;
 }
 
-function userPrompt() {
-  for (var i = 0; i < 5; i++) {
-    var userNumber = parseInt(prompt('Inserisci un numero alla volta '));
-    // listaNumeriUser.push(userNumber); prova
-  }
-}
-
 var listaNumeriRandom = [];
 for (var i = 0; i < 5; i++) {
   var generated = randomNumber(1, 100);
@@ -18,14 +11,22 @@ for (var i = 0; i < 5; i++) {
 
 alert(JSON.stringify('ricorda questi numeri, tra 30 secondi me gli ripeti' + '  ' + listaNumeriRandom));
 
-// var listaNumeriUser = []; arrayprova
-
-setTimeout(userPrompt, 3000)
-
-for (var i = 0; i < 5; i++) {
-  if (userNumber === listaNumeriRandom[i]) {
-    alert('ok')
-  } else {
-    alert('no')
+setTimeout(function() {
+  var listaNumeriUser = [];
+  for (var i = 0; i < 5; i++) {
+    var userNumber = parseInt(prompt('Inserisci un numero alla volta '));
+    listaNumeriUser.push(userNumber);
   }
-}
+  while (listaNumeriRandom.includes(listaNumeriUser[i])) {
+    var listaToShow = [];
+    listaToShow.push(listaNumeriUser[i]);
+    alert(JSON.stringify(listaToShow));
+  }
+  // for (var i = 0; i < 5; i++) {
+  //   if (listaNumeriRandom.includes(listaNumeriUser[i])) {
+  //     alert('ok');
+  //   } else {
+  //     alert('no');
+  //   }
+  // }
+}, 3000)
